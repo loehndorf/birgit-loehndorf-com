@@ -103,6 +103,16 @@ main {
     font-weight: 700;
 }
 
+.hero-title span[data-i18n="hero.title"] {
+    display: block;
+    font-size: 0.5em;
+    /* Approximately 1.75rem relative to 3.5rem */
+    margin-top: 0.5rem;
+    font-weight: 400;
+    line-height: 1.4;
+    color: #e0e0e0;
+}
+
 .hero-title .highlight {
     color: var(--text-color);
     background: linear-gradient(90deg, #fff, #a5b4fc);
@@ -362,9 +372,15 @@ main {
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     margin-top: 3rem;
+}
+
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .service-card {
@@ -419,20 +435,27 @@ main {
     padding: 1.2rem 3rem;
 }
 
-.social-links {
-    margin-top: 3rem;
+.contact-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
 }
 
-.social-links a {
+/* Secondary Button Style */
+.cta-button.secondary {
+    background-color: transparent;
+    border: 1px solid var(--accent-color);
     color: var(--text-color);
-    text-decoration: none;
-    margin: 0 1rem;
-    opacity: 0.7;
-    transition: opacity 0.2s;
 }
 
-.social-links a:hover {
-    opacity: 1;
+.cta-button.secondary:hover {
+    background-color: var(--accent-color);
+    color: white;
+    box-shadow: 0 4px 12px var(--accent-glow);
+    transform: translateY(-2px);
 }
 
 /* Footer */
@@ -442,4 +465,5 @@ footer {
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     color: #555;
     font-size: 0.9rem;
+    margin-top: 4rem;
 }
